@@ -21,7 +21,6 @@ export class ListComponent implements OnInit {
 
   onGoToEdit(item: any):void{
   this.navigationExtras.state = item;
-  
   this.router.navigate(['edit'], this.navigationExtras);
  }
 

@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
 value;
+
+
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     this.value = navigation?.extras?.state;
+    console.log('Value',this.value);
    }
 
   ngOnInit(): void {
