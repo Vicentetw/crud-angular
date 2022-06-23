@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -7,7 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
+//NavigationExtras lo utilizo para pasar objeto de persona a editar
+  navigationExtras: NavigationExtras= {
+  state:{
+    value:null
+  }
+};
   constructor(private router: Router) { }
 
   ngOnInit(): void {
