@@ -12,7 +12,10 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-onGoToEdit(item: any): void{ }
+onGoToEdit(item: any): void{
+  this.router.navigate(['edit']);
+ }
+
 
 onGoToSee(item: any): void{
   this.router.navigate(['details']);
