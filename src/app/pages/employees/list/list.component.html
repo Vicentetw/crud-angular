@@ -1,1 +1,26 @@
-<p>list works!</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+<thead>
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Fecha</th>
+        <!-- oculto los botones en formato mobile-->
+        <th scope="col" class="d-none d-sm-block">Action</th>
+    </tr>
+</thead>
+<tbody>
+    <tr class="table-info" *ngFor="let item of [0, 1, 2, 3]">
+        <th scope="row">Marcelo Pérez</th>
+        <td>mp@gmail.com</td>
+        <td>01/01/2011</td>
+        <!-- oculto los botones en formato mobile el btn-group me deja un borde con border-radius lo saco con css brbtn-->
+        <td class="btn-group d-none d-sm-block brbtn" role="group">
+            <button type="button" class="btn btn-outline-warning m-1" (click)="onGoToEdit(item)">Edit</button>
+            <button type="button" class="btn btn-outline-warning m-1" (click)="onGoToSee(item)">See</button>
+            <button type="button" class="btn btn-outline-danger m-1" (click)="onGoToDelete(item)">Delete</button>
+        </td>
+    </tr>
+</tbody>
+    </table>
+</div>

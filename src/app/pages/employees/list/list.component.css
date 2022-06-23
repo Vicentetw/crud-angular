@@ -1,0 +1,6 @@
+.table > :not(caption) > * > *{
+    background-color: #00000024;
+}
+.brbtn{
+    border-radius: 0%;
+}
