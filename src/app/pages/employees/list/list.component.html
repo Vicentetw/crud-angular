@@ -10,10 +10,10 @@
     </tr>
 </thead>
 <tbody>
-    <tr class="table-info" *ngFor="let item of [0, 1, 2, 3]">
-        <th scope="row">Marcelo Pérez</th>
-        <td>mp@gmail.com</td>
-        <td>01/01/2011</td>
+    <tr class="table-info" *ngFor="let item of fakeData">
+        <th scope="row">{{item.name}} {{item.lastName}}</th>
+        <td>{{item.email}}</td>
+        <td>{{item.startDate}}</td>
         <!-- oculto los botones en formato mobile el btn-group me deja un borde con border-radius lo saco con css brbtn-->
         <td class="btn-group d-none d-sm-block brbtn" role="group">
             <button type="button" class="btn btn-outline-warning m-1" (click)="onGoToEdit(item)">Edit</button>
