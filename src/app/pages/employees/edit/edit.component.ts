@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { Employee } from 'src/app/shared/models/employees.interface';
 
 @Component({
   selector: 'app-edit',
@@ -8,20 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-employee;
-//employeeForm = new FormGroup({
- // name: new FormControl(''),
-//  lastName: new FormControl(''),
-//  email: new FormControl(''),
- // startDate: new FormControl(''),
-//});
-
+  employee: Employee;
+  //propiedad navigationExtras lo utilizo para pasar objeto de persona a editar
+navigationExtras: NavigationExtras= {
+  state:{
+    value:null
+  }
+};
 // para email corto private isEmail = /\S+@\S+\.\S+/;
 private isEmail = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
-  employeeForm!: FormGroup;
+employeeForm!: FormGroup;
+
   constructor(private router: Router, private fb: FormBuilder) {
     const navigation = this.router.getCurrentNavigation();
-    this.employee = navigation?.extras?.state;
+    this.employee = navigation?.extras?.state!['value'];
     
    }
 

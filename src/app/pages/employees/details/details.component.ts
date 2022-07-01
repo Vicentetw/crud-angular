@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Employee } from 'src/app/shared/models/employees.interface';
 
 @Component({
   selector: 'app-details',
@@ -7,20 +8,26 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  
 //propiedad navigationExtras lo utilizo para pasar objeto de persona a editar
 navigationExtras: NavigationExtras= {
   state:{
     value:null
   }
 };
-  employee: any = null;
-
+ 
+employee: any = null;
 constructor(private router: Router) { 
     const navigation = this.router.getCurrentNavigation();
     this.employee = navigation?.extras?.state;
+    
+    
 }
 
   ngOnInit(): void {
+    if (typeof this.employee === 'undefined'){
+      this.router.navigate(['list']);
+    }
   }
 
   onGoToEdit():void{
