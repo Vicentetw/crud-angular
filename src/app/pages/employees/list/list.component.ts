@@ -47,8 +47,8 @@ fakeData = [
   }
 
   onGoToEdit(item: any):void{
-  this.navigationExtras.state = item;
-  this.router.navigate(['edit'], this.navigationExtras);
+    this.navigationExtras.state = item;
+    this.router.navigate(['edit'], this.navigationExtras);
  }
 
 

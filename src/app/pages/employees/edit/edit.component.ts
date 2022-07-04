@@ -9,7 +9,7 @@ import { Employee } from 'src/app/shared/models/employees.interface';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  employee: Employee;
+ public employee: any =null;
   //propiedad navigationExtras lo utilizo para pasar objeto de persona a editar
 navigationExtras: NavigationExtras= {
   state:{
@@ -22,7 +22,7 @@ employeeForm!: FormGroup;
 
   constructor(private router: Router, private fb: FormBuilder) {
     const navigation = this.router.getCurrentNavigation();
-    this.employee = navigation?.extras?.state!['value'];
+    this.employee = navigation?.extras?.state;
     
    }
 
