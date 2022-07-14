@@ -27,6 +27,7 @@ constructor(private router: Router) {
   ngOnInit(): void {
     if (typeof this.employee === 'undefined'){
       this.router.navigate(['list']);
+      console.log(typeof(this.employee)) 
     }
   }
 

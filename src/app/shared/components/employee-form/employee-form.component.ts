@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { Employee } from '../../models/employees.interface';
 
 @Component({
   selector: 'app-employee-form',
@@ -9,7 +10,8 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class EmployeeFormComponent implements OnInit {
 
-  public employee: any =null;
+ employee: any =null;
+ //employee!: Employee;
   //propiedad navigationExtras lo utilizo para pasar objeto de persona a editar
 navigationExtras: NavigationExtras= {
   state:{
@@ -23,12 +25,14 @@ employeeForm!: FormGroup;
   constructor(private router: Router, private fb: FormBuilder) {
     const navigation = this.router.getCurrentNavigation();
     this.employee = navigation?.extras?.state;
+
+   
+    this.initForm();
     
    }
 
   ngOnInit(): void {
-    this.initForm();
-    if (typeof this.employee === 'undefined'){
+       if (typeof this.employee === 'undefined'){
       //redirect
       this.router.navigate(['new']);
     }else{
