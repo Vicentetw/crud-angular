@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { EmployeesService } from 'src/app/pages/employees/employees.service';
 import { Employee } from '../../models/employees.interface';
 
 @Component({
@@ -22,7 +23,7 @@ navigationExtras: NavigationExtras= {
 private isEmail = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 employeeForm!: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private employeesSvc: EmployeesService) {
     const navigation = this.router.getCurrentNavigation();
     this.employee = navigation?.extras?.state;
 
@@ -39,9 +40,15 @@ employeeForm!: FormGroup;
       this.employeeForm.patchValue(this.employee)
     }
   }
-onSave(): void{
-  console.log('saved', this.employeeForm.value)
-}
+  onSave(): void {
+    console.log('Saved', this.employeeForm.value);
+    if (this.employeeForm.valid) {
+      const employee = this.employeeForm.value;
+      const employeeId = this.employee?.id || null;
+      this.employeesSvc.onSaveEmployee(employee, employeeId);
+      this.employeeForm.reset();
+    }
+  }
 private initForm(): void {
   this.employeeForm = this.fb.group({
   name:['', [Validators.required]],

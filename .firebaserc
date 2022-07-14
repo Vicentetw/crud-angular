@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-e74c2": {
+      "hosting": {
+        "crud-angular": [
+          "login-e74c2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-e74c2"
+  }
+}
