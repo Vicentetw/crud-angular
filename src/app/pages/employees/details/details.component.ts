@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Employee } from 'src/app/shared/models/employees.interface';
+import { EmployeesService } from '../employees.service';
 
 @Component({
   selector: 'app-details',
@@ -17,7 +18,7 @@ navigationExtras: NavigationExtras= {
 };
  
 employee: any = null;
-constructor(private router: Router) { 
+constructor(private router: Router, private employeesSvc: EmployeesService) { 
     const navigation = this.router.getCurrentNavigation();
     this.employee = navigation?.extras?.state;
     
@@ -38,7 +39,17 @@ constructor(private router: Router) {
    onGoBackToList():void{
     this.router.navigate(['list'], this.navigationExtras);
    }
-   onGoToDelete():void{ 
+   /**
+    onGoToDelete():void{ 
     alert('Deleted');
   }
+  */
+  async onGoToDelete(empId: any): Promise<void> {
+    try {
+      await this.employeesSvc.onDeleteEmployees(empId);
+      alert('Deleted');
+    } catch (err) {
+      console.log(err);
+    }
+}
 }
