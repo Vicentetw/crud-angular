@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { EmployeesService } from '../employees.service';
 
 @Component({
   selector: 'app-list',
@@ -8,12 +9,13 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 //propiedad navigationExtras lo utilizo para pasar objeto de persona a editar
-  navigationExtras: NavigationExtras= {
+employees$ = this.employeesSvc.employees;
+navigationExtras: NavigationExtras= {
   state:{
     value:null
   }
 };
-
+/** datos que ya no utilizo
 fakeData = [
   {
     name:'Emma',
@@ -40,8 +42,8 @@ fakeData = [
     startDate:'01/06/2022'
   }
 ]
-
-  constructor(private router: Router) { }
+*/
+  constructor(private router: Router, private employeesSvc: EmployeesService) { }
 
   ngOnInit(): void {
   }

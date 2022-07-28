@@ -49,6 +49,9 @@ employeeForm!: FormGroup;
       this.employeeForm.reset();
     }
   }
+  onGoBackToList(): void {
+    this.router.navigate(['list'])
+  }
 private initForm(): void {
   this.employeeForm = this.fb.group({
   name:['', [Validators.required]],
