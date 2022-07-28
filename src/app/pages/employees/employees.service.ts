@@ -41,6 +41,7 @@ export class EmployeesService {
         const data = { id, ...employee };
         const result = await this.employeesCollection.doc(id).set(data);
         resolve(result);
+        alert('Modified');
       } catch (err) {
         reject();
       }

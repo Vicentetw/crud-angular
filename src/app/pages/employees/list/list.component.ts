@@ -50,16 +50,26 @@ fakeData = [
 
   onGoToEdit(item: any):void{
     this.navigationExtras.state = item;
-    this.router.navigate(['edit'], this.navigationExtras);
- }
+        this.router.navigate(['edit'], this.navigationExtras);
+         }
 
 
 onGoToSee(item: any):void{
   this.navigationExtras.state = item;
-  this.router.navigate(['details'], this.navigationExtras);
+   this.router.navigate(['details'], this.navigationExtras);
  }
 
-onGoToDelete(item: any):void{ 
+/**
+ * onGoToDelete(item: any):void{ 
   alert('Deleted');
+}
+*/
+async onGoToDelete(empId: any): Promise<void> {
+  try {
+    await this.employeesSvc.onDeleteEmployees(empId);
+    alert('Deleted');
+  } catch (err) {
+    console.log(err);
+  }
 }
 }
