@@ -24,7 +24,8 @@ import { SignUpComponent } from './pages/login/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './pages/login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.component';
 import { LoginComponent } from './pages/login/login/login.component';
-
+//Auth services
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LoginComponent } from './pages/login/login/login.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule 
   ],
-  providers: [AngularFirestore],
+  //in providers AuthService
+  providers: [AngularFirestore,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
