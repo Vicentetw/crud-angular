@@ -1,51 +1,51 @@
-<!-- Top navigation -->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
-      <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
-    </a>
-  </nav>
-  <!-- Sidebar navigation -->
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active">
-                <i class="fas fa-user"></i>User Profile
-              </a>
-            </li>
-            <!-- Calling SignOut() Api from AuthService -->
-            <li class="nav-item">
-              <a class="nav-link" (click)="authService.SignOut()">
-                <i class="fas fa-sign-out-alt"></i>Log out
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!-- Main content -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-          <div class="pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">User Profile</h1>
-          </div>
-          <!-- Show user data when logged in -->
-          <div class="row" *ngIf="authService.userData as user">
-            <div class="col-md-12">
-              <div class="media">
-                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                  alt="{{user.displayName}}">
-                <div class="media-body">
-                  <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                  <p>User ID: <strong>{{user.uid}}</strong></p>
-                  <p>Email: <strong>{{user.email}}</strong></p>
-                  <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+
+
+  <div class="card-header">
+    <div class="card-body">
+      <h3>Debes logearte para ingresar</h3>
+      <div class="form-group">
+        <input type="text" class="form-control m-2" placeholder="Username" #userName required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control m-2" placeholder="Password" #userPassword required>
+      </div>
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="form-group">
+        <input type="button" class="btn btn-primary btn-lg btn-block m-2" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+      </div>
+
+      <div   class="form-group">
+        <input  class="btn btn-primary btn-lg btn-block m-2 log-out" value="Log out" (click)="this.authService.SignOut()">
+      </div>
+
+      
+     <!-- solo la letra O 
+      <div class="form-group">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+      -->
+
+      <!-- Calling GoogleAuth Api from AuthService -->
+      
+      <!--por ahora dejo deshabilitado el login con google desde html y desde firebase
+      <div class="form-group">
+        <button type="button" class="btn btn-danger" (click)="authService.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Log in with Google
+        </button>
+      </div>
+      <div class="forgotPassword">
+        <span routerLink="/forgot-password">Forgot Password?</span>
+      </div>
+-->
+      
+
     </div>
+
+<!-- Calling GoogleAuth para registrarse, disable for now, see you later ArgentinaPrograma3
+    <div class="redirectToLogin">
+      <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+    </div>
+  -->
+
   </div>
