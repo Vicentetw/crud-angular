@@ -13,6 +13,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {AngularFirestore} from '@angular/fire/compat/firestore';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFunctions(() => getFunctions()),
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
