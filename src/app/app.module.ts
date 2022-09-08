@@ -19,12 +19,22 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { SignInComponent } from './pages/login/sign-in/sign-in.component';
+import { SignUpComponent } from './pages/login/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './pages/login/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.component';
+import { LoginComponent } from './pages/login/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
