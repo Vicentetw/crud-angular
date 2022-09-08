@@ -8,12 +8,17 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HeaderModule } from './shared/components/header/header.module';
 import { EmployeeFormModule } from './shared/components/employee-form/employee-form.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
-import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Firebase services + environment module
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -31,7 +36,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     provideAuth(() => getAuth()),
     provideFunctions(() => getFunctions()),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule 
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
