@@ -26,6 +26,11 @@ import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.co
 import { LoginComponent } from './pages/login/login/login.component';
 //Auth services
 import { AuthService } from './shared/services/auth.service';
+import { FilterPipe } from './shared/pipes/filter.pipe';
+//Auth services
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +40,8 @@ import { AuthService } from './shared/services/auth.service';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    LoginComponent
+    LoginComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,10 @@ import { AuthService } from './shared/services/auth.service';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule 
+    AngularFireDatabaseModule ,
+    //import reactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   //in providers AuthService
   providers: [AngularFirestore,AuthService],

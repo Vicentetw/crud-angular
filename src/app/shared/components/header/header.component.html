@@ -1,24 +1,23 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Employee CRUD</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
-           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/list']">Lis</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/new']">New</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-         <!--Dropdown menu  <li class="nav-item dropdown">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Employee CRUD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/list']">Lis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/new']">New</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <!--Dropdown menu  <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Action</a>
@@ -29,24 +28,39 @@
             </div>
           </li>
         -->
-        </ul>
-        <div *ngIf="this.authService.isLoggedIn">
-          <button class="btn btn-success m-2">Logueado</button>
-        </div>
-      
-        <div *ngIf="!this.authService.isLoggedIn">
-          <button class="btn btn-light m-2" (click)="ruta()">Login</button>
-        </div>
-        <div *ngIf="this.authService.isLoggedIn">
-          <button class="btn btn-light m-2" (click)="Salir()">Sign Out</button>
-        </div>
-     <!-- Form search that I don´t use.  <form class="d-flex">
-          <input class="form-control me-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      -->
+      </ul>
+      <div *ngIf="this.authService.isLoggedIn">
+        <button class="btn btn-success m-2">Logueado</button>
       </div>
+
+      <div *ngIf="!this.authService.isLoggedIn">
+
+        <button class="btn btn-light m-2" (click)="ruta()">Login</button>
+      </div>
+      <div *ngIf="this.authService.isLoggedIn">
+        <button class="btn btn-light m-2" (click)="Salir()">Sign Out</button>
+      </div>
+      <!-- Show user data when logged in -->
+      <div class="row" *ngIf="authService.userData as user">
+        <div class="col-md-12">
+          <div class="media">
+            <!--  <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                alt="{{user.displayName}}">
+                -->
+            <div class="media-body">
+              <!--
+                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                <p>User ID: <strong>{{user.uid}}</strong></p>
+               -->
+              <p>Email: <strong>{{user.email}}</strong></p>
+              <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
-  </nav>
-  
-  
+  </div>
+</nav>

@@ -1,5 +1,14 @@
-<div class="table-responsive">
+<div *ngIf="!this.authService.isLoggedIn" class="table-responsive">
+    <h2>Debes estar logeado</h2>
+</div>
+<div *ngIf="this.authService.isLoggedIn" class="table-responsive">
+    <div><form class="d-flex">
+        <input  class="form-control me-sm-2" type="text" placeholder="Search" name="filterPost">
+        
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form></div>
     <table class="table table-hover">
+        
 <thead>
     <tr>
         <th scope="col">Nombre</th>
@@ -10,7 +19,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr class="table-info" *ngFor="let item of employees$ | async">
+    <tr class="table-info" *ngFor="let item of employees$ | async" >
         <th scope="row">{{item.name}} {{item.lastName}}</th>
         <td>{{item.email}}</td>
         <td>{{item.startDate}}</td>
@@ -25,3 +34,5 @@
 </tbody>
     </table>
 </div>
+
+

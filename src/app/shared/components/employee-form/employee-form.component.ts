@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { EmployeesService } from 'src/app/pages/employees/employees.service';
 import { Employee } from '../../models/employees.interface';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -23,7 +24,7 @@ navigationExtras: NavigationExtras= {
 private isEmail = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 employeeForm!: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder, private employeesSvc: EmployeesService) {
+  constructor(private router: Router, private fb: FormBuilder, private employeesSvc: EmployeesService,public authService: AuthService) {
     const navigation = this.router.getCurrentNavigation();
     this.employee = navigation?.extras?.state;
 

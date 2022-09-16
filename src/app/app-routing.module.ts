@@ -7,7 +7,7 @@ import { ForgotPasswordComponent } from './pages/login/forgot-password/forgot-pa
 import { VerifyEmailComponent} from './pages/login/verify-email/verify-email.component';
 
 const routes: Routes = [
-  
+  { path: 'login', component: LoginComponent },
   { path: 'list', loadChildren: () => import('./pages/employees/list/list.module').then(m => m.ListModule) },
 { path: 'new', loadChildren: () => import('./pages/employees/new/new.module').then(m => m.NewModule) }, 
  { path: 'details', loadChildren: () => import('./pages/employees/details/details.module').then(m => m.DetailsModule) }, 
@@ -15,13 +15,13 @@ const routes: Routes = [
  { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard/dashboard.module').then(m => m.DashboardModule) },
  { path: '', loadChildren: () => import('./pages/dashboard/dashboard/dashboard.module').then(m => m.DashboardModule) },
  //{ path: '**', redirectTo:'',pathMatch:'full' }]
- { path: '**', redirectTo:'/login',pathMatch:'full' },
+ 
  { path: 'sign-in', component: SignInComponent },
  { path: 'register-user', component: SignUpComponent },
- { path: 'login', component: LoginComponent },
- { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
  { path: 'verify-email-address', component: VerifyEmailComponent },
-
+ { path: '**', redirectTo:'/login',pathMatch:'full' },
+ 
 ]
  ;
  

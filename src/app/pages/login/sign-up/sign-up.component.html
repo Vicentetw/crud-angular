@@ -1,11 +1,12 @@
-<div class="displayTable">
+<div class="card-header">
+<div class="card-body">
     <div class="displayTableCell">
       <div class="authBlock">
         <h3>Sign Up</h3>
         <div class="formGroup">
           <input
             type="email"
-            class="formControl"
+            class="formControl m-2"
             placeholder="Email Address"
             #userEmail
             required
@@ -14,7 +15,7 @@
         <div class="formGroup">
           <input
             type="password"
-            class="formControl"
+            class="formControl m-2"
             placeholder="Password"
             #userPwd
             required
@@ -23,7 +24,7 @@
         <div class="formGroup">
           <input
             type="button"
-            class="btn btnPrimary"
+            class="btn btnPrimary btn-lg btn-block m-2"
             value="Sign Up"
             (click)="authService.SignUp(userEmail.value, userPwd.value)"
           />
@@ -46,8 +47,34 @@
       <div class="redirectToLogin">
         <span
           >Already have an account?
-          <span class="redirect" routerLink="/sign-in">Log In</span></span
+          <span class="redirect" routerLink="/login">Log In</span></span
         >
       </div>
     </div>
   </div>
+</div>
+<div class="container login-form">
+	<h2 class="login-title">- Please Login -</h2>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<form>
+				<div class="input-group login-userinput">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					<input id="txtUser" type="text" class="form-control" name="username" placeholder="Username">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+					<input  id="txtPassword" type="password" class="form-control" name="password" placeholder="Password">
+					<span id="showPassword" class="input-group-btn">
+            <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+          </span>  
+				</div>
+				<button class="btn btn-primary btn-block login-button" type="submit"><i class="fa fa-sign-in"></i> Login</button>
+				<div class="checkbox login-options">
+					<label><input type="checkbox"/> Remember Me</label>
+					<a href="#" class="login-forgot">Forgot Username/Password?</a>
+				</div>		
+			</form>			
+		</div>
+	</div>
+</div>

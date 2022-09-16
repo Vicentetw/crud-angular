@@ -8,6 +8,7 @@ import { Employee } from 'src/app/shared/models/employees.interface';
 })
 export class EmployeesService {
   employees!: Observable<Employee[]>;
+filtroEmpleado: string= '';
 
  private employeesCollection: AngularFirestoreCollection<Employee>;
   
